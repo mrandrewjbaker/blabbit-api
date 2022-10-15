@@ -1,0 +1,45 @@
+{
+  "root": true,
+  "env": {
+    "commonjs": true
+  },
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "globalReturn": true
+    },
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "@typescript-eslint/indent": ["error", 2],
+    "max-len": ["error", { "code": 120 } ],
+    "function-paren-newline": ["error", "multiline-arguments"]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [ ".ts"]
+      }
+    }
+  },
+  "overrides": [
+    {
+      "files": ["startup.js"],
+      "rules": {},
+      "parser": "",
+      "settings": {
+        "import/resolver": {
+          "node": {
+            "extensions": [ ".js"]
+          }
+        }
+      }
+    }
+  ],
+
+}
