@@ -1,5 +1,5 @@
 import { QueryInterface } from 'sequelize';
-import { dataSchema___permission } from '../models/permission';
+import { dataSchema___permission } from '../../models/permission';
 
 module.exports = {
   up: async (queryInterface: QueryInterface) => {

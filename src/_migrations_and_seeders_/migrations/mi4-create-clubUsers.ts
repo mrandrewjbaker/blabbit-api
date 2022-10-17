@@ -1,5 +1,5 @@
 import { QueryInterface } from 'sequelize';
-import { dataSchema___clubUser } from '../models/clubUser';
+import { dataSchema___clubUser } from '../../models/clubUser';
 
 module.exports = {
   up: async (queryInterface: QueryInterface) => {

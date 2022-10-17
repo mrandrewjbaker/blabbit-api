@@ -3,7 +3,7 @@ import {
   DataTypes, Optional,
 } from 'sequelize';
 import { sequelizeResource, } from '../resources/resource.sequelize';
-import { seederDataObject___roles } from '../seeders/data/roles';
+import { seederDataObject___roles } from '../_migrations_and_seeders_/seeders/data/roles';
 
 
 export interface IClubUserProperties {

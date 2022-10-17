@@ -1,7 +1,7 @@
 import { v5 as uuidv5 } from "uuid";
 import { uuidNamespace } from "../d00-options";
-import { IRoleProperties } from "../../../models/role";
-import { IRolePermissionProperties } from "../../../models/rolePermission";
+import { IRoleProperties } from "../../../../models/role";
+import { IRolePermissionProperties } from "../../../../models/rolePermission";
 import { seederDataObject___roles } from "../roles";
 import { seederDataObject___clubs_permissions } from "../permissions/clubs_permissions";
 import { seederDataObject___clubPosts_permissions } from "../permissions/clubPosts_permissions";

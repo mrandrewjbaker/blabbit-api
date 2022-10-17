@@ -1,6 +1,6 @@
 import { v5 as uuidv5 } from "uuid";
 import { uuidNamespace } from "../d00-options";
-import { IRoleProperties } from "../../../models/role";
+import { IRoleProperties } from "../../../../models/role";
 
 export interface ISeederDataObject___Roles {
   [key: string]: IRoleProperties;

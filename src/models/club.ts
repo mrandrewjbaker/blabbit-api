@@ -1,7 +1,7 @@
 import {
   Model, DataTypes, Optional,
 } from 'sequelize';
-import { seederDataObject___statuses } from '../seeders/data/statuses';
+import { seederDataObject___statuses } from '../_migrations_and_seeders_/seeders/data/statuses';
 
 
 import { sequelizeResource } from '../resources/resource.sequelize';

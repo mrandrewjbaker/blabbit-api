@@ -1,11 +1,11 @@
 import { QueryInterface } from 'sequelize';
-import { dataSchema___club } from '../models/club';
+import { dataSchema___user } from '../../models/user';
 
 module.exports = {
   up: async (queryInterface: QueryInterface) => {
-    await queryInterface.createTable('clubs', dataSchema___club);
+    await queryInterface.createTable('users', dataSchema___user);
   },
   down: async(queryInterface: QueryInterface) => {
-    await queryInterface.dropTable('clubs');
+    await queryInterface.dropTable('users');
   }
 };

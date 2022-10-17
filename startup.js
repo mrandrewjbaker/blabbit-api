@@ -106,7 +106,7 @@ const startupTypescript = async () => {
 
 const startupDatabaseMigrations = async () => {
   const startupDatabaseMigrationsCommand =
-    "sequelize db:migrate --migrations-path ./dist/src/migrations";
+    "sequelize db:migrate --migrations-path ./dist/src/_migrations_and_seeders_/migrations";
 
   console.log(
     cliColors.text.orange +
@@ -133,7 +133,7 @@ const startupDatabaseMigrations = async () => {
 
 const startupDatabaseSeeders = async () => {
   const startupDatabaseSeedersCommand =
-    "sequelize db:seed:all --seeders-path ./dist/src/seeders";
+    "sequelize db:seed:all --seeders-path ./dist/src/_migrations_and_seeders_/seeders";
   console.log(
     cliColors.text.orange +
       "Executing startup database seeders command" +

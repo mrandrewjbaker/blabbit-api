@@ -1,4 +1,4 @@
-import { IPermissionProperties } from "../../../models/permission";
+import { IPermissionProperties } from "../../../../models/permission";
 import { seederDataObject___clubPosts_permissions } from "./clubPosts_permissions";
 import { seederDataObject___clubs_permissions } from "./clubs_permissions";
 import { seederDataObject___permissions_permissions } from "./permissions_permissions";

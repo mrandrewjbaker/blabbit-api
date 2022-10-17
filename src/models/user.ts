@@ -4,8 +4,8 @@ import {
 import { sequelizeResource } from '../resources/resource.sequelize';
 import bcrypt from 'bcrypt';
 
-import { seederDataObject___statuses } from '../seeders/data/statuses';
-import { seederDataObject___roles } from '../seeders/data/roles';
+import { seederDataObject___statuses } from '../_migrations_and_seeders_/seeders/data/statuses';
+import { seederDataObject___roles } from '../_migrations_and_seeders_/seeders/data/roles';
 
 
 

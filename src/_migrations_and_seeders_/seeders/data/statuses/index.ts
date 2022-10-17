@@ -1,6 +1,6 @@
 import { v5 as uuidv5 } from "uuid";
 import { uuidNamespace } from "../d00-options";
-import { IStatusProperties } from "../../../models/status";
+import { IStatusProperties } from "../../../../models/status";
 
 export interface ISeederDataObject___Statuses {
   [key: string]: IStatusProperties;

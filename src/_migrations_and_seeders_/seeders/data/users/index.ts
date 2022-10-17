@@ -1,4 +1,4 @@
-import { IUserProperties } from "../../../models/user";
+import { IUserProperties } from "../../../../models/user";
 import { v5 as uuidv5 } from "uuid";
 import { uuidNamespace } from "../d00-options";
 import { seederDataObject___statuses } from "../statuses";

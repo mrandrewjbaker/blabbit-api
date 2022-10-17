@@ -1,6 +1,6 @@
 import { v5 as uuidv5 } from "uuid";
 import { uuidNamespace } from "../d00-options";
-import { IClubProperties } from "../../../models/club";
+import { IClubProperties } from "../../../../models/club";
 import { seederDataObject___statuses } from "../statuses";
 
 export interface ISeederDataObject___ClubProperties {

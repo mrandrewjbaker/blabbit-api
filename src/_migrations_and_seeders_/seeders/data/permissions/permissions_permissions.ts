@@ -2,7 +2,7 @@ import { v5 as uuidv5 } from "uuid";
 import { uuidNamespace } from "../d00-options";
 
 import { ISeederDataObject___PermissionsProperties } from ".";
-import { IPermissionProperties } from "../../../models/permission";
+import { IPermissionProperties } from "../../../../models/permission";
 
 export const seederDataObject___permissions_permissions: ISeederDataObject___PermissionsProperties = {
   "PERMISSIONS___CREATE": {

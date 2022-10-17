@@ -1,5 +1,5 @@
 import { QueryInterface } from 'sequelize';
-import { dataSchema___status } from '../models/status';
+import { dataSchema___status } from '../../models/status';
 
 module.exports = {
   up: async (queryInterface: QueryInterface) => {

@@ -1,4 +1,4 @@
-import { IPermissionProperties } from "../../../models/permission";
+import { IPermissionProperties } from "../../../../models/permission";
 import { v5 as uuidv5 } from "uuid";
 import { ISeederDataObject___PermissionsProperties } from ".";
 import { uuidNamespace } from "../d00-options";
