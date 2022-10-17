@@ -1,47 +1,9 @@
-import { QueryInterface, DataTypes } from 'sequelize';
+import { QueryInterface } from 'sequelize';
+import { dataSchema___club } from '../models/club';
 
 module.exports = {
   up: async (queryInterface: QueryInterface) => {
-    await queryInterface.createTable('clubs', {
-      id: {
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
-        primaryKey: true,
-        allowNull: false,
-      },
-      name: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      description: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      open: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
-      },
-      slugName: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      memberCount: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
-      statusId: {
-        type: DataTypes.UUID,
-        allowNull: false,
-      },
-      createdAt: {
-        type: DataTypes.DATE,
-        allowNull: false,
-      },
-      updatedAt: {
-        type: DataTypes.DATE,
-        allowNull: false,
-      },
-    });
+    await queryInterface.createTable('clubs', dataSchema___club);
   },
   down: async(queryInterface: QueryInterface) => {
     await queryInterface.dropTable('clubs');

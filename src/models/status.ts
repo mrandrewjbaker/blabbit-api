@@ -1,10 +1,7 @@
 import {
   Model, DataTypes, Optional,
 } from 'sequelize';
-
-
 import { sequelizeResource } from '../resources/resource.sequelize';
-
 
 type TStatusType = 'generic' | 'user'; 
 
@@ -14,6 +11,31 @@ export interface IStatusProperties {
   type: TStatusType;
   createdAt?: Date; 
   updatedAt?: Date;
+}
+
+export const dataSchema___status = {
+  id: {
+    type: DataTypes.UUID,
+    defaultValue: DataTypes.UUIDV4,
+    allowNull: false,
+    primaryKey: true
+  },
+  name: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  type: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  createdAt: {
+    type: DataTypes.DATE,
+    allowNull: false
+  },
+  updatedAt: {
+    type: DataTypes.DATE,
+    allowNull: false
+  }
 }
 
 export interface IStatusPropertiesCreate extends Optional<IStatusProperties, 'id'> {}
@@ -27,25 +49,12 @@ implements IStatusProperties{
     
   }
 };
-status.init({
-  id: {
-    type: DataTypes.UUID,
-    defaultValue: DataTypes.UUIDV4,
-    allowNull: false,
-    primaryKey: true,
-  },
-  name: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  type: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-},{
+
+status.init(dataSchema___status, {
   sequelize: sequelizeResource,
-  modelName: 'user'
+  modelName: 'status'
 });
+
 export default status;
 
 const addStatusModelFunction = async (name: string, type: TStatusType) => {

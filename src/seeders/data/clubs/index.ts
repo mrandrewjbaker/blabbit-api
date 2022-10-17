@@ -32,4 +32,4 @@ export const seederDataObject___clubs: ISeederDataObject___ClubProperties = {
   }
 };
 
-export const seederData___Club: IClubProperties[] = Object.values(seederDataObject___clubs);
+export const seederData___clubs: IClubProperties[] = Object.values(seederDataObject___clubs);

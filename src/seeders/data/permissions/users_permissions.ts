@@ -5,7 +5,7 @@ import { ISeederDataObject___PermissionsProperties } from ".";
 import { IPermissionProperties } from "../../../models/permission";
 
 
-export const seederDataObject___clubs_permissions: ISeederDataObject___PermissionsProperties = {
+export const seederDataObject___users_permissions: ISeederDataObject___PermissionsProperties = {
   "USERS___CREATE": {
     id: uuidv5('USERS___CREATE', uuidNamespace),
     key: 'USERS___CREATE',
@@ -32,4 +32,4 @@ export const seederDataObject___clubs_permissions: ISeederDataObject___Permissio
   }
 }
 
-export const seederData___clubs_permissions: IPermissionProperties[] = Object.values(seederDataObject___clubs_permissions);
+export const seederData___users_permissions: IPermissionProperties[] = Object.values(seederDataObject___users_permissions);

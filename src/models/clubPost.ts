@@ -17,21 +17,7 @@ export interface IClubPostProperties {
   updatedAt?: Date;
 }
 
-export interface IClubPostPropertiesCreate extends Optional<IClubPostProperties, 'id'> {}
-
-class clubPost extends Model<IClubPostProperties, IClubPostPropertiesCreate>
-implements IClubPostProperties{
-  declare id: string;
-  declare clubId: string;
-  declare userId: string;
-  declare statusId: string;
-  declare title: string;
-  declare body: string;
-  static associate(models: any){
-    
-  }
-};
-clubPost.init({
+export const dataSchema___clubPost = {
   id: {
     type: DataTypes.UUID,
     defaultValue: DataTypes.UUIDV4,
@@ -60,16 +46,33 @@ clubPost.init({
   },
   createdAt: {
     type: DataTypes.DATE,
-    allowNull: false,
+    allowNull: false
   },
   updatedAt: {
     type: DataTypes.DATE,
-    allowNull: false,
+    allowNull: false
   }
-},{
+}
+
+export interface IClubPostPropertiesCreate extends Optional<IClubPostProperties, 'id'> {}
+
+class clubPost extends Model<IClubPostProperties, IClubPostPropertiesCreate>
+implements IClubPostProperties{
+  declare id: string;
+  declare clubId: string;
+  declare userId: string;
+  declare statusId: string;
+  declare title: string;
+  declare body: string;
+  static associate(models: any){
+    
+  }
+};
+clubPost.init(dataSchema___clubPost ,{
   sequelize: sequelizeResource,
   modelName: 'clubPost',
 });
+
 export default clubPost;
 
 const addClubPostModelFunction = async (clubId: string, userId: string, statusId: string, title: string, body: string) => {

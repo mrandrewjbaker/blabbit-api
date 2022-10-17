@@ -5,6 +5,7 @@ import { sequelizeResource } from '../resources/resource.sequelize';
 import bcrypt from 'bcrypt';
 
 import { seederDataObject___statuses } from '../seeders/data/statuses';
+import { seederDataObject___roles } from '../seeders/data/roles';
 
 
 
@@ -14,29 +15,17 @@ export interface IUserProperties {
   username: string;
   password: string;
   statusId: string;
+  roleId: string;
   createdAt?: Date; 
   updatedAt?: Date;
 }
 
-export interface IUserPropertiesCreate extends Optional<IUserProperties, 'id'> {}
-
-class user extends Model<IUserProperties, IUserPropertiesCreate>
-implements IUserProperties{
-  declare id: string;
-  declare email: string;
-  declare username: string;
-  declare password: string;
-  declare statusId: string;
-  static associate(models: any){
-    
-  }
-};
-user.init({
+export const dataSchema___user = {
   id: {
     type: DataTypes.UUID,
     defaultValue: DataTypes.UUIDV4,
     allowNull: false,
-    primaryKey: true,
+    primaryKey: true
   },
   email: {
     type: DataTypes.STRING,
@@ -54,10 +43,40 @@ user.init({
     type: DataTypes.UUID,
     allowNull: false
   },
-},{
+  roleId: {
+    type: DataTypes.UUID,
+    allowNull: false
+  },
+  createdAt: {
+    type: DataTypes.DATE,
+    allowNull: false
+  },
+  updatedAt: {
+    type: DataTypes.DATE,
+    allowNull: false
+  }
+}
+
+export interface IUserPropertiesCreate extends Optional<IUserProperties, 'id'> {}
+
+class user extends Model<IUserProperties, IUserPropertiesCreate>
+implements IUserProperties{
+  declare id: string;
+  declare email: string;
+  declare username: string;
+  declare password: string;
+  declare statusId: string;
+  declare roleId: string;
+  static associate(models: any){
+    
+  }
+};
+
+user.init(dataSchema___user, {
   sequelize: sequelizeResource,
   modelName: 'user'
 });
+
 export default user;
 
 const registerUserAuthModelFunction = async (email: string, username: string, password: string) => {
@@ -69,6 +88,7 @@ const registerUserAuthModelFunction = async (email: string, username: string, pa
     username: username,
     password: hashedPassword,
     statusId: seederDataObject___statuses.unverified.id,
+    roleId: seederDataObject___roles.siteMember.id,
   });
   return registerUserAuthResult
 }
@@ -113,9 +133,19 @@ const getUserByUsernameModelFunction = async (username: string) => {
   return userAuthGetByUsernameResult;
 }
 
+const getUserRoleByIdModelFunction = async (userId: string) => {
+  const userRoleByIdResult = await user.findOne({
+    where: {
+      id: userId
+    },
+  });
+  return userRoleByIdResult;
+}
+
 export { 
   registerUserAuthModelFunction,
   loginUserAuthModelFunction,
   getUserByEmailModelFunction,
-  getUserByUsernameModelFunction
+  getUserByUsernameModelFunction,
+  getUserRoleByIdModelFunction
 };

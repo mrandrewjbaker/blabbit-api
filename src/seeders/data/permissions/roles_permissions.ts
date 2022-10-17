@@ -31,4 +31,4 @@ export const seederDataObject___roles_permissions: ISeederDataObject___Permissio
   }
 }
 
-export const seederData___Roles_permissions: IPermissionProperties[] = Object.values(seederDataObject___roles_permissions);
+export const seederData___roles_permissions: IPermissionProperties[] = Object.values(seederDataObject___roles_permissions);

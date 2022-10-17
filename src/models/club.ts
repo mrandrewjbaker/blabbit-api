@@ -19,27 +19,12 @@ export interface IClubProperties {
   updatedAt?: Date;
 }
 
-export interface IClubPropertiesCreate extends Optional<IClubProperties, 'id'> {}
-
-class club extends Model<IClubProperties, IClubPropertiesCreate>
-implements IClubProperties{
-  declare id: string;
-  declare name: string;
-  declare description: string;
-  declare open: boolean;
-  declare slugName: string;
-  declare memberCount: number;
-  declare statusId: string;
-  static associate(models: any){
-    
-  }
-};
-club.init({
+export const dataSchema___club = {
   id: {
     type: DataTypes.UUID,
     defaultValue: DataTypes.UUIDV4,
     allowNull: false,
-    primaryKey: true,
+    primaryKey: true
   },
   name: {
     type: DataTypes.STRING,
@@ -58,18 +43,44 @@ club.init({
     allowNull: false
   },
   memberCount: {
-    type: DataTypes.NUMBER,
+    type: DataTypes.INTEGER,
     allowNull: false
   },
   statusId: {
     type: DataTypes.STRING,
     allowNull: false
   },
+  createdAt: {
+    type: DataTypes.DATE,
+    allowNull: false
+  },
+  updatedAt: {
+    type: DataTypes.DATE,
+    allowNull: false
+  }
+}
 
-},{
+export interface IClubPropertiesCreate extends Optional<IClubProperties, 'id'> {}
+
+class club extends Model<IClubProperties, IClubPropertiesCreate>
+implements IClubProperties{
+  declare id: string;
+  declare name: string;
+  declare description: string;
+  declare open: boolean;
+  declare slugName: string;
+  declare memberCount: number;
+  declare statusId: string;
+  static associate(models: any){
+    
+  }
+};
+
+club.init(dataSchema___club, {
   sequelize: sequelizeResource,
-  modelName: 'user'
+  modelName: 'club'
 });
+
 export default club;
 
 const registerClubhModelFunction = async (name: string, description: string, open: boolean, slugName: string) => {
