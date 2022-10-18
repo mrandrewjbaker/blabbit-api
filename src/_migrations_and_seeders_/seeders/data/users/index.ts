@@ -16,13 +16,34 @@ export const seederData___users: IUserProperties[] = [
     updatedAt: new Date(), 
   },
   {
-    id: uuidv5('timmytommy', uuidNamespace),
-    username: 'timmytommy',
-    email: 'timmytommy@email.com',
+    id: uuidv5('userSiteMember_1', uuidNamespace),
+    username: 'userSiteMember_1',
+    email: 'userSiteMember_1@email.com',
     password: '$2b$10$bBDtyWu3wPVTYvr.OO4dheGlXx26ofc1CR7m3lnWFNBwmqHKtQ5Km',
     statusId: seederDataObject___statuses.verified.id,
     roleId: seederDataObject___roles.siteMember.id,
     createdAt: new Date(),
     updatedAt: new Date()
-  }
+  },
+  {
+    id: uuidv5('userSiteMember_2', uuidNamespace),
+    username: 'userSiteMember_2',
+    email: 'userSiteMember_2@email.com',
+    password: '$2b$10$bBDtyWu3wPVTYvr.OO4dheGlXx26ofc1CR7m3lnWFNBwmqHKtQ5Km',
+    statusId: seederDataObject___statuses.verified.id,
+    roleId: seederDataObject___roles.siteMember.id,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    id: uuidv5('webdevClubAdmin', uuidNamespace),
+    username: 'webdevClubAdmin',
+    email: 'webdevClubAdmin@email.com',
+    password: '$2b$10$bBDtyWu3wPVTYvr.OO4dheGlXx26ofc1CR7m3lnWFNBwmqHKtQ5Km',
+    statusId: seederDataObject___statuses.verified.id,
+    roleId: seederDataObject___roles.siteMember.id,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+
 ];

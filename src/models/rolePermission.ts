@@ -3,13 +3,11 @@ import {
 } from 'sequelize';
 import { sequelizeResource } from '../resources/resource.sequelize';
 
-type TRolePermissionOrigin = 'site' | 'club';
 
 export interface IRolePermissionProperties {
   id: string;
   roleId: string;
   permissionId: string;
-  origin: TRolePermissionOrigin;
   createdAt?: Date; 
   updatedAt?: Date;
 }
@@ -29,10 +27,6 @@ export const dataSchema___rolePermission = {
     type: DataTypes.UUID,
     allowNull: false,
   },
-  origin: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
   createdAt: {
     type: DataTypes.DATE,
     allowNull: false
@@ -50,7 +44,6 @@ implements IRolePermissionProperties{
   declare id: string;
   declare roleId: string;
   declare permissionId: string;
-  declare origin: TRolePermissionOrigin;
   static associate(models: any){
     
   }
@@ -63,8 +56,8 @@ rolePermission.init(dataSchema___rolePermission, {
 
 export default rolePermission;
 
-const addRolePermissionsModelFunction = async (roleId: string, permissionId: string, origin: TRolePermissionOrigin) => {
-  const addRolePermissionsResult = await rolePermission.create({roleId, permissionId, origin});
+const addRolePermissionsModelFunction = async (roleId: string, permissionId: string) => {
+  const addRolePermissionsResult = await rolePermission.create({roleId, permissionId});
   return addRolePermissionsResult;
 }
 

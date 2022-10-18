@@ -1,7 +1,7 @@
 import { v5 as uuidv5 } from "uuid";
 import { uuidNamespace } from "../d00-options";
 
-import { ISeederDataObject___PermissionsProperties } from ".";
+import { ISeederDataObject___PermissionsProperties } from "../permissions";
 import { IPermissionProperties } from "../../../../models/permission";
 
 
