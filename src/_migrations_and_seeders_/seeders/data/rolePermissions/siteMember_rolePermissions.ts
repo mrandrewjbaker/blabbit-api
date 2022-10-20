@@ -6,13 +6,7 @@ import { seederDataObject___roles } from "../roles";
 import { seederDataObject___clubs_permissions } from "../permissions/clubs_permissions";
 import { seederDataObject___users_permissions } from "../permissions/users_permissions";
 
-export interface ISeederData {
-  [key: string]: IRoleProperties;
-}
-
-
-
-export const seederData___rolePermissions: IRolePermissionProperties[] = [
+export const seederData___siteMember_rolePermissions: IRolePermissionProperties[] = [
   {
     id: uuidv5('siteMember_CLUBS___READ', uuidNamespace),
     roleId: seederDataObject___roles.siteMember.id,

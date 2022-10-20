@@ -1,5 +1,5 @@
 import { QueryInterface } from 'sequelize';
-import { seederData___permissions } from './data/permissions';
+import { seederData___clubPermissions } from './data/clubPemissions';
 
 module.exports = {
   up: (queryInterface: QueryInterface) => {
