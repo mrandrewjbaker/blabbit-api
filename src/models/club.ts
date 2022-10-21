@@ -83,7 +83,7 @@ club.init(dataSchema___club, {
 
 export default club;
 
-const registerClubhModelFunction = async (name: string, description: string, open: boolean, slugName: string) => {
+const clubCreateModelFunction = async (name: string, description: string, open: boolean, slugName: string) => {
   const registerClubResult = await club.create({
     name,
     description,
@@ -92,16 +92,39 @@ const registerClubhModelFunction = async (name: string, description: string, ope
     memberCount: 0,
     statusId: seederDataObject___statuses.pending.id
   });
-  return registerClubResult;
+  return registerClubResult.toJSON();
 }
 
-const getAllClubsModelFunction = async () => {
+const clubsGetAllModelFunction = async () => {
   const getAllClubsResult = await club.findAll();
   return getAllClubsResult;
 }
 
+const clubGetByIdModelFunction = async (id: string) => {
+  const getClubByIdResult = await club.findByPk(id);
+  return getClubByIdResult;
+}
+
+const clubUpdateByIdModelFunction = async (id: string, name: string, description: string, open: boolean, slugName: string) => {
+  console.log('clubUpdateModelFunction');
+  const updateClubResult = await club.update({
+    name,
+    description,
+    open,
+    slugName
+  }, {
+    where: {
+      id
+    }
+  });
+  return updateClubResult;
+}
+
+
 
 export { 
-  registerClubhModelFunction,
-  getAllClubsModelFunction
+  clubCreateModelFunction,
+  clubsGetAllModelFunction,
+  clubGetByIdModelFunction,
+  clubUpdateByIdModelFunction,
 };

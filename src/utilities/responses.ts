@@ -1,7 +1,7 @@
 export const successResponse = (res: any, data: any) => {
-  return res.status(200).json({
-    data,
-  });
+  return res.status(200).json(
+    data
+  );
 };
 
 export const errorResponse = (res: any, error: any) => {

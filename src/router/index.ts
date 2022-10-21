@@ -1,5 +1,8 @@
 import express from 'express';
+
 import { userRouter } from '../resources/user/user.routes';
+
+import { clubsRouter } from '../resources/clubs/clubs.routes';
 
 
 const router = express.Router({ mergeParams: true });
@@ -10,6 +13,8 @@ router.get('/', (req, res) => {
 });
 
 router.use('/user', userRouter);
+
+router.use('/clubs', clubsRouter);
 
 
 module.exports = router;
