@@ -17,4 +17,4 @@ router.use('/user', userRouter);
 router.use('/clubs', clubsRouter);
 
 
-module.exports = router;
+export default router;

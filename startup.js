@@ -1,5 +1,5 @@
 //dependancies
-require("dotenv").config({ path: "./env/.env" });
+require("dotenv").config({ path: "./src/env/.env" });
 const os = require("os");
 const { exec, execSync } = require("child_process");
 const fs = require("fs");

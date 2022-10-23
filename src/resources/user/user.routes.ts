@@ -1,5 +1,5 @@
 import express from 'express';
-import { authLoginController, authRegisterController } from '../auth/auth.controllers';
+import { authLoginController, authRegisterController } from './auth/auth.controllers';
 
 const userRouter = express.Router({ mergeParams: true });
 

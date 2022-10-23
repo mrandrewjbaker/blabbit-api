@@ -80,13 +80,13 @@ user.init(dataSchema___user, {
 export default user;
 
 const registerUserAuthModelFunction = async (email: string, username: string, password: string) => {
-  const saltedPassword = await bcrypt.genSalt(10);
-  const hashedPassword = await bcrypt.hash(password, saltedPassword);
+  const salt = await bcrypt.genSalt(10);
+  const hashedAndSaltedPassword = await bcrypt.hash(password, salt);
 
   const registerUserAuthResult = await user.create({
     email: email,
     username: username,
-    password: hashedPassword,
+    password: hashedAndSaltedPassword,
     statusId: seederDataObject___statuses.unverified.id,
     roleId: seederDataObject___roles.siteMember.id,
   });
@@ -94,25 +94,25 @@ const registerUserAuthModelFunction = async (email: string, username: string, pa
 }
 
 const loginUserAuthModelFunction = async (username: string, password: string) => {
-  let loginUserAuthLResult = await user.findOne({
+  let loginUserAuthResult = await user.findOne({
     where: {
       username: username
     },
   });
-  if (!loginUserAuthLResult) {
+  if (!loginUserAuthResult) {
     return null;
   }
-  const isValid = await bcrypt.compare(password, loginUserAuthLResult.password);
+  const isValid = await bcrypt.compare(password, loginUserAuthResult.password);
   if (!isValid) {
     return null;
   }
 
-  const loginUserAuthLResultCleaned = {
-    id: loginUserAuthLResult.id,
-    username: loginUserAuthLResult.username,
-    email: loginUserAuthLResult.email,
+  const loginUserAuthResultCleaned = {
+    id: loginUserAuthResult.id,
+    username: loginUserAuthResult.username,
+    email: loginUserAuthResult.email,
   }
-  return loginUserAuthLResultCleaned;
+  return loginUserAuthResultCleaned;
 }
 
 const getUserByEmailModelFunction = async (email: string) => {
